@@ -309,7 +309,7 @@
 
 						<div class="col-12">
 							<div id="nft-products" class="row g-4">
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-media nft-graphics">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-media nft-graphics nft-jewelry">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -347,7 +347,7 @@
 									</div>
 								</article>
 
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-illustrations nft-icons">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-illustrations nft-icons nft-jewelry">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -383,7 +383,7 @@
 									</div>
 								</article>
 
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-media">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-media nft-pottery">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -415,7 +415,7 @@
 									</div>
 								</article>
 
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-uielements nft-icons">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-uielements nft-icons nft-pottery">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -451,7 +451,7 @@
 										</a>
 									</div>
 								</article>
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-illustrations nft-graphics">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-illustrations nft-graphics nft-clothing">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -488,7 +488,7 @@
 									</div>
 								</article>
 
-								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-graphics nft-uielements">
+								<article class="col-xl-3 col-lg-4 col-sm-6 col-12 nft-graphics nft-uielements nft-clothing">
 									<div class="card rounded-6 overflow-hidden card-bg-dark">
 										<div class="card-body p-4">
 											<div class="mb-4 position-relative">
@@ -1110,6 +1110,43 @@
 				</div>
 			</div><!-- #copyrights end -->
 		</footer><!-- #footer end -->
+		<script>
+			document.querySelectorAll('.grid-filter a').forEach(function(filterLink) {
+  filterLink.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // Remove the activeFilter class from all filter links
+    document.querySelectorAll('.grid-filter .activeFilter').forEach(function(activeLink) {
+      activeLink.classList.remove('activeFilter');
+    });
+
+    // Add the activeFilter class to the clicked link's parent <li>
+    this.parentNode.classList.add('activeFilter');
+
+    // Get the filter value from the clicked link's data-filter attribute
+    var filterValue = this.getAttribute('data-filter');
+
+    // Hide all grid items
+    document.querySelectorAll('article').forEach(function(gridItem) {
+      gridItem.style.display = 'none';
+    });
+
+    // If the selected option is "show all", show all cards
+    if (filterValue === '*') {
+      document.querySelectorAll('article').forEach(function(gridItem) {
+        gridItem.style.display = 'block';
+        gridItem.classList.add('fade-in');
+      });
+    } else {
+      // If the selected option is a category, show only the cards with the corresponding class
+      document.querySelectorAll('article' + filterValue).forEach(function(gridItem) {
+        gridItem.style.display = 'block';
+        gridItem.classList.add('fade-in');
+      });
+    }
+  });
+});
+		</script>
 		<script>
 				const provider = new WalletConnectProvider({
 					infuraId: c6ec8bef0b0d47eb9739c7e848b1a9f2 // Required

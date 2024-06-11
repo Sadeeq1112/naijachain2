@@ -33558,4 +33558,13 @@ body.dark {
   color: rgba(255, 255, 255, 0.4);
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+}
 /*# sourceMappingURL=style.css.map */
