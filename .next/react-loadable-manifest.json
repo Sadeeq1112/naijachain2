@@ -1,1 +1,80 @@
-{}
+{
+  "../components/product-details/place-bet.jsx -> @ui/countdown/layout-02": {
+    "id": 20908,
+    "files": [
+      "static/chunks/908-95a9fa334a24e2fe.js"
+    ]
+  },
+  "../components/product/layout-01/index.jsx -> @components/share-dropdown": {
+    "id": 78104,
+    "files": [
+      "static/chunks/3953-d0f9d1d62367f699.js",
+      "static/chunks/8714-25b0c52a317a6220.js",
+      "static/chunks/8104.d477ab110c470cba.js"
+    ]
+  },
+  "../components/product/layout-01/index.jsx -> @ui/countdown/layout-01": {
+    "id": 88553,
+    "files": [
+      "static/chunks/8553.3fc38e76ed1fa79d.js"
+    ]
+  },
+  "../components/ui/slider/index.jsx -> react-slick": {
+    "id": 46066,
+    "files": [
+      "static/chunks/6066.d1d47efddf511725.js"
+    ]
+  },
+  "../components/ui/video-button/index.jsx -> react-modal-video": {
+    "id": 61239,
+    "files": [
+      "static/chunks/1239.000c46a43a7489d0.js"
+    ]
+  },
+  "../containers/hero/layout-09/slide.jsx -> @components/share-dropdown": {
+    "id": 78104,
+    "files": []
+  },
+  "../containers/hero/layout-09/slide.jsx -> @ui/countdown/layout-02": {
+    "id": 20908,
+    "files": [
+      "static/chunks/908-95a9fa334a24e2fe.js"
+    ]
+  },
+  "../containers/product/layout-01/index.jsx -> react-bootstrap/TabContainer": {
+    "id": 97184,
+    "files": [
+      "static/chunks/7184.3e950c49cd158ba5.js"
+    ]
+  },
+  "../containers/product/layout-01/index.jsx -> react-bootstrap/TabContent": {
+    "id": 28752,
+    "files": [
+      "static/chunks/8752.20cacf4a9585dbef.js"
+    ]
+  },
+  "../containers/product/layout-01/index.jsx -> react-bootstrap/TabPane": {
+    "id": 75103,
+    "files": [
+      "static/chunks/5103.31ee3b9e6a79b32e.js"
+    ]
+  },
+  "../containers/product/layout-02/index.jsx -> react-bootstrap/TabContainer": {
+    "id": 97184,
+    "files": [
+      "static/chunks/7184.3e950c49cd158ba5.js"
+    ]
+  },
+  "../containers/product/layout-02/index.jsx -> react-bootstrap/TabContent": {
+    "id": 28752,
+    "files": [
+      "static/chunks/8752.20cacf4a9585dbef.js"
+    ]
+  },
+  "../containers/product/layout-02/index.jsx -> react-bootstrap/TabPane": {
+    "id": 75103,
+    "files": [
+      "static/chunks/5103.31ee3b9e6a79b32e.js"
+    ]
+  }
+}
