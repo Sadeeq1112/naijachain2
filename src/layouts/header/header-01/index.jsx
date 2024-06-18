@@ -1,8 +1,7 @@
-/* eslint-disable no-console */
-import { useState } from "react";
+// components/header.js
+import React, { useContext } from 'react';
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import Web3 from "web3";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import MobileMenu from "@components/menu/mobile-menu";
@@ -16,50 +15,13 @@ import Button from "@ui/button";
 import { useOffcanvas, useSticky, useFlyoutSearch } from "@hooks";
 import headerData from "../../../data/general/header-01.json";
 import menuData from "../../../data/general/menu-01.json";
+import { WalletContext } from '../../../contexts/WalletContext';
 
 const Header = ({ className }) => {
     const sticky = useSticky();
     const { offcanvas, offcanvasHandler } = useOffcanvas();
     const { search, searchHandler } = useFlyoutSearch();
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [ethBalance, setEthBalance] = useState("");
-
-    const detectCurrentProvider = () => {
-        let provider;
-        if (window.ethereum) {
-            provider = window.ethereum;
-        } else if (window.web3) {
-            provider = window.web3.currentProvider;
-        } else {
-            console.log(
-                "Non-ethereum browser detected. You should install Metamask"
-            );
-        }
-        return provider;
-    };
-
-    const onConnect = async () => {
-        try {
-            const currentProvider = detectCurrentProvider();
-            if (currentProvider) {
-                await currentProvider.request({
-                    method: "eth_requestAccounts",
-                });
-                const web3 = new Web3(currentProvider);
-                const userAccount = await web3.eth.getAccounts();
-                const account = userAccount[0];
-                const getEthBalance = await web3.eth.getBalance(account);
-                setEthBalance(getEthBalance);
-                setIsAuthenticated(true);
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
-    const onDisconnect = () => {
-        setIsAuthenticated(false);
-    };
+    const { isAuthenticated, walletAddress, connectWallet, disconnectWallet } = useContext(WalletContext);
 
     return (
         <>
@@ -106,9 +68,9 @@ const Header = ({ className }) => {
                                             color="primary-alta"
                                             className="connectBtn"
                                             size="small"
-                                            onClick={onConnect}
+                                            onClick={connectWallet}
                                         >
-                                            Wallet connect
+                                            Connect Wallet
                                         </Button>
                                     </div>
                                 </div>
@@ -116,8 +78,8 @@ const Header = ({ className }) => {
                             {isAuthenticated && (
                                 <div className="setting-option rn-icon-list user-account">
                                     <UserDropdown
-                                        onDisconnect={onDisconnect}
-                                        ethBalance={ethBalance}
+                                        onDisconnect={disconnectWallet}
+                                        walletAddress={walletAddress}
                                     />
                                 </div>
                             )}

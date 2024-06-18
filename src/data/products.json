@@ -7,7 +7,7 @@
         "latestBid": "6/30",
         "price": {
             "amount": 50,
-            "currency": "Algo"
+            "currency": " ALGO"
         },
         "likeCount": 322,
         "categories": ["textile", "handmade"],
@@ -72,7 +72,7 @@
                         "src": "/images/client/client-3.png"
                     }
                 },
-                "amount": "10Algo",
+                "amount": "10 ALGO",
                 "bidAt": "1 hours ago"
             },
             {
@@ -84,7 +84,7 @@
                         "src": "/images/client/client-4.png"
                     }
                 },
-                "amount": "15Algo",
+                "amount": "15 ALGO",
                 "bidAt": "1.30 hours ago"
             },
             {
@@ -96,7 +96,7 @@
                         "src": "/images/client/client-5.png"
                     }
                 },
-                "amount": "20Algo",
+                "amount": "20 ALGO",
                 "bidAt": "1.35 hours ago"
             }
         ],
@@ -139,7 +139,7 @@
                         "src": "/images/client/client-3.png"
                     }
                 },
-                "amount": "101Algo",
+                "amount": "101 ALGO",
                 "bidAt": "1 hours ago"
             },
             {

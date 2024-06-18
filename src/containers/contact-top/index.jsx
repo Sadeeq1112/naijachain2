@@ -19,11 +19,9 @@ const ContactTopArea = ({ space, className }) => (
                     data-sal-duration="800"
                 >
                     <div className="section-title mb--30 text-center">
-                        <h2 className="title">Quick Contact Address</h2>
+                        <h2 className="title">Contact US</h2>
                         <p className="description">
-                            There are many variations of passages of Lorem Ipsum
-                            available, <br /> but the majority have suffered
-                            alteration.
+                            Here is how <br /> how you can reach out to us easily
                         </p>
                     </div>
                 </div>
@@ -38,7 +36,7 @@ const ContactTopArea = ({ space, className }) => (
                     <AddressBox
                         icon="feather-headphones"
                         title="Contact Phone Number"
-                        phoneNumbers={["+444 555 666 777", "+222 222 222 333"]}
+                        phoneNumbers={["+234 7031115516", "+234 9137301925"]}
                     />
                 </div>
                 <div
@@ -50,7 +48,7 @@ const ContactTopArea = ({ space, className }) => (
                     <AddressBox
                         icon="feather-mail"
                         title="Our Email Address"
-                        emails={["admin@gmail.com", "example@gmail.com"]}
+                        emails={["abubakarelsadeeq521@gmail.com", "abubakarelsadeeq522@gmail.com"]}
                     />
                 </div>
                 <div
@@ -62,7 +60,7 @@ const ContactTopArea = ({ space, className }) => (
                     <AddressBox
                         icon="feather-map-pin"
                         title="Our Location"
-                        address="5678 Bangla Main Road, cities 580 <br> GBnagla, example 54786"
+                        address="Faculty of engineering, University of Jos Permanent Site"
                     />
                 </div>
             </div>

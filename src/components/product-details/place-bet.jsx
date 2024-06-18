@@ -22,10 +22,10 @@ const PlaceBet = ({ highest_bid, auction_date, btnColor, className }) => {
             <div className={clsx("place-bet-area", className)}>
                 <div className="rn-bet-create">
                     <div className="bid-list winning-bid">
-                        <h6 className="title">Winning bit</h6>
+                        <h6 className="title"> </h6>
                         <div className="top-seller-inner-one">
                             <div className="top-seller-wrapper">
-                                {highest_bid.bidder?.image?.src && (
+                                {/*highest_bid.bidder?.image?.src && (
                                     <div className="thumbnail">
                                         <Anchor path={highest_bid.bidder.slug}>
                                             <Image
@@ -38,7 +38,7 @@ const PlaceBet = ({ highest_bid, auction_date, btnColor, className }) => {
                                             />
                                         </Anchor>
                                     </div>
-                                )}
+                                )*/}
 
                                 <div className="top-seller-content">
                                     <span className="heighest-bid">
@@ -54,19 +54,19 @@ const PlaceBet = ({ highest_bid, auction_date, btnColor, className }) => {
                             </div>
                         </div>
                     </div>
-                    {auction_date && (
+                    {/*auction_date && (
                         <div className="bid-list left-bid">
                             <h6 className="title">Auction has ended</h6>
                             <Countdown className="mt--15" date={auction_date} />
                         </div>
-                    )}
+                    )*/}
                 </div>
                 <Button
                     color={btnColor || "primary-alta"}
                     className="mt--30"
                     onClick={handleBidModal}
                 >
-                    Place a Bid
+                    Buy
                 </Button>
             </div>
             <PlaceBidModal show={showBidModal} handleModal={handleBidModal} />

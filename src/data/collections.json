@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "title": "Cubic Trad",
-        "slug": "/collection",
+        "title": "Artisan Market",
+        "slug": "/artisan-market",
         "total_item": 27,
         "image": {
             "src": "/images/collection/collection-lg-01.jpg"
@@ -24,8 +24,8 @@
     },
     {
         "id": 2,
-        "title": "Diamond Dog",
-        "slug": "/collection",
+        "title": "Local Crafts",
+        "slug": "/local-crafts",
         "total_item": 20,
         "image": {
             "src": "/images/collection/collection-lg-02.jpg"
@@ -47,8 +47,8 @@
     },
     {
         "id": 3,
-        "title": "Morgan11",
-        "slug": "/collection",
+        "title": "Decentralized Art",
+        "slug": "/decentralized-art",
         "total_item": 15,
         "image": {
             "src": "/images/collection/collection-lg-03.jpg"
@@ -70,8 +70,8 @@
     },
     {
         "id": 4,
-        "title": "Orthogon#720",
-        "slug": "/collection",
+        "title": "Handmade Goods",
+        "slug": "/handmade-goods",
         "total_item": 27,
         "image": {
             "src": "/images/collection/collection-lg-04.jpg"
@@ -93,8 +93,8 @@
     },
     {
         "id": 5,
-        "title": "Trad Mard",
-        "slug": "/collection",
+        "title": "Artisanal Creations",
+        "slug": "/artisanal-creations",
         "total_item": 35,
         "image": {
             "src": "/images/collection/collection-lg-02.jpg"
@@ -116,8 +116,8 @@
     },
     {
         "id": 6,
-        "title": "Dog Eligator",
-        "slug": "/collection",
+        "title": "Local Artisan Showcase",
+        "slug": "/local-artisan-showcase",
         "total_item": 82,
         "image": {
             "src": "/images/collection/collection-lg-04.jpg"
@@ -139,8 +139,8 @@
     },
     {
         "id": 7,
-        "title": "Dog Eligator",
-        "slug": "/collection",
+        "title": "Artisanal Innovations",
+        "slug": "/artisanal-innovations",
         "total_item": 10,
         "image": {
             "src": "/images/collection/collection-lg-05.jpg"
@@ -162,8 +162,8 @@
     },
     {
         "id": 8,
-        "title": "Thememove",
-        "slug": "/collection",
+        "title": "Decentralized Crafts",
+        "slug": "/decentralized-crafts",
         "total_item": 82,
         "image": {
             "src": "/images/collection/collection-lg-01.jpg"
@@ -185,8 +185,8 @@
     },
     {
         "id": 9,
-        "title": "Quarter Trad",
-        "slug": "/collection",
+        "title": "Handcrafted Creations",
+        "slug": "/handcrafted-creations",
         "total_item": 15,
         "image": {
             "src": "/images/collection/collection-lg-02.jpg"
@@ -208,8 +208,8 @@
     },
     {
         "id": 10,
-        "title": "Cat Eligator",
-        "slug": "/collection",
+        "title": "Artisanal Masterpieces",
+        "slug": "/artisanal-masterpieces",
         "total_item": 56,
         "image": {
             "src": "/images/collection/collection-lg-04.jpg"
@@ -231,8 +231,8 @@
     },
     {
         "id": 11,
-        "title": "Monas Nine",
-        "slug": "/collection",
+        "title": "Local Artisanal Treasures",
+        "slug": "/local-artisanal-treasures",
         "total_item": 56,
         "image": {
             "src": "/images/collection/collection-lg-03.jpg"
@@ -254,8 +254,8 @@
     },
     {
         "id": 12,
-        "title": "Golden dog",
-        "slug": "/collection",
+        "title": "Decentralized Artisan Market",
+        "slug": "/decentralized-artisan-market",
         "total_item": 40,
         "image": {
             "src": "/images/collection/collection-lg-02.jpg"
@@ -277,8 +277,8 @@
     },
     {
         "id": 13,
-        "title": "Golden Cat",
-        "slug": "/collection",
+        "title": "Artisanal Expressions",
+        "slug": "/artisanal-expressions",
         "total_item": 35,
         "image": {
             "src": "/images/collection/collection-lg-04.jpg"
@@ -298,4 +298,4 @@
             "src": "/images/client/client-12.png"
         }
     }
-]
+    ]

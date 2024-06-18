@@ -13,21 +13,21 @@ const BidTab = ({ className, bids, owner, properties, tags, history }) => (
         <div className={clsx("tab-wrapper-one", className)}>
             <nav className="tab-button-one">
                 <Nav as="div" className="nav-tabs">
-                    <Nav.Link as="button" eventKey="nav-home">
+                    {/*<Nav.Link as="button" eventKey="nav-home">
                         Bids
-                    </Nav.Link>
+                    </Nav.Link>*/}
                     <Nav.Link as="button" eventKey="nav-profile">
                         Details
                     </Nav.Link>
-                    <Nav.Link as="button" eventKey="nav-contact">
+                    {/*<Nav.Link as="button" eventKey="nav-contact">
                         History
-                    </Nav.Link>
+                    </Nav.Link>*/}
                 </Nav>
             </nav>
             <TabContent className="rn-bid-content">
-                <TabPane eventKey="nav-home">
+                {/*<TabPane eventKey="nav-home">
                     <BidsTabContent bids={bids} />
-                </TabPane>
+                </TabPane>*/}
                 <TabPane eventKey="nav-profile">
                     <DetailsTabContent
                         owner={owner}
@@ -35,9 +35,9 @@ const BidTab = ({ className, bids, owner, properties, tags, history }) => (
                         tags={tags}
                     />
                 </TabPane>
-                <TabPane eventKey="nav-contact">
+                {/*<TabPane eventKey="nav-contact">
                     <HistoryTabContent history={history} />
-                </TabPane>
+                </TabPane>*/}
             </TabContent>
         </div>
     </TabContainer>

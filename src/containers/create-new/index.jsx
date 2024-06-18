@@ -7,12 +7,15 @@ import Button from "@ui/button";
 import ProductModal from "@components/modals/product-modal";
 import ErrorText from "@ui/error-text";
 import { toast } from "react-toastify";
+import algosdk from 'algosdk';
+import { PeraWalletConnect } from "@perawallet/connect";
 
 const CreateNewArea = ({ className, space }) => {
     const [showProductModal, setShowProductModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState();
     const [hasImageError, setHasImageError] = useState(false);
     const [previewData, setPreviewData] = useState({});
+    const peraWallet = new PeraWalletConnect();
 
     const {
         register,
@@ -23,19 +26,18 @@ const CreateNewArea = ({ className, space }) => {
         mode: "onChange",
     });
 
-    const notify = () => toast("Your product has submitted");
+    const notify = () => toast("Your product has been submitted");
     const handleProductModal = () => {
         setShowProductModal(false);
     };
 
-    // This function will be triggered when the file field change
     const imageChange = (e) => {
         if (e.target.files && e.target.files.length > 0) {
             setSelectedImage(e.target.files[0]);
         }
     };
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         const { target } = e;
         const submitBtn =
             target.localName === "span" ? target.parentElement : target;
@@ -44,13 +46,51 @@ const CreateNewArea = ({ className, space }) => {
         if (isPreviewBtn && selectedImage) {
             setPreviewData({ ...data, image: selectedImage });
             setShowProductModal(true);
-        }
-        if (!isPreviewBtn) {
-            notify();
-            reset();
-            setSelectedImage();
+        } else {
+            // Submit to the blockchain
+            try {
+                const algodClient = new algosdk.Algodv2(
+                    process.env.NEXT_PUBLIC_ALGOD_TOKEN,
+                    process.env.NEXT_PUBLIC_ALGOD_SERVER,
+                    process.env.NEXT_PUBLIC_ALGOD_PORT
+                );
+
+                const accounts = await peraWallet.connect();
+                const accountAddress = accounts[0];
+                peraWallet.disconnect();
+
+                const params = await algodClient.getTransactionParams().do();
+
+                const txn = algosdk.makeAssetCreateTxnWithSuggestedParams(
+                    accountAddress,
+                    algosdk.encodeObj(data),
+                    1000,
+                    0,
+                    false,
+                    accountAddress,
+                    accountAddress,
+                    accountAddress,
+                    accountAddress,
+                    selectedImage.name,
+                    selectedImage.type,
+                    selectedImage.size,
+                    data.property,
+                    params
+                );
+
+                const signedTxn = await peraWallet.signTransaction(txn.toByte());
+
+                const sendTx = await algodClient.sendRawTransaction(signedTxn.blob).do();
+                console.log("Transaction : " + sendTx.txId);
+                notify();
+                reset();
+                setSelectedImage(null);
+            } catch (error) {
+                console.error("Failed to submit product: ", error);
+            }
         }
     };
+
     return (
         <>
             <div
@@ -60,7 +100,7 @@ const CreateNewArea = ({ className, space }) => {
                     className
                 )}
             >
-                <form action="#" onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="container">
                         <div className="row g-5">
                             <div className="col-lg-3 offset-1 ml_md--0 ml_sm--0">
@@ -113,17 +153,7 @@ const CreateNewArea = ({ className, space }) => {
                                 </div>
 
                                 <div className="mt--100 mt_sm--30 mt_md--30 d-none d-lg-block">
-                                    <h5> Note: </h5>
-                                    <span>
-                                        {" "}
-                                        Service fee : <strong>2.5%</strong>{" "}
-                                    </span>{" "}
-                                    <br />
-                                    <span>
-                                        {" "}
-                                        You will receive :{" "}
-                                        <strong>25.00 ETH $50,000</strong>
-                                    </span>
+                                    
                                 </div>
                             </div>
                             <div className="col-lg-7">
@@ -156,27 +186,27 @@ const CreateNewArea = ({ className, space }) => {
                                         <div className="col-md-12">
                                             <div className="input-box pb--20">
                                                 <label
-                                                    htmlFor="Discription"
+                                                    htmlFor="description"
                                                     className="form-label"
                                                 >
-                                                    Discription
+                                                    Description
                                                 </label>
                                                 <textarea
-                                                    id="discription"
+                                                    id="description"
                                                     rows="3"
                                                     placeholder="e. g. “After purchasing the product you can get item...”"
                                                     {...register(
-                                                        "discription",
+                                                        "description",
                                                         {
                                                             required:
-                                                                "Discription is required",
+                                                                "Description is required",
                                                         }
                                                     )}
                                                 />
-                                                {errors.discription && (
+                                                {errors.description && (
                                                     <ErrorText>
                                                         {
-                                                            errors.discription
+                                                            errors.description
                                                                 ?.message
                                                         }
                                                     </ErrorText>
@@ -184,7 +214,7 @@ const CreateNewArea = ({ className, space }) => {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-4">
+                                        <div className="col-md-12">
                                             <div className="input-box pb--20">
                                                 <label
                                                     htmlFor="price"
@@ -213,142 +243,14 @@ const CreateNewArea = ({ className, space }) => {
                                             </div>
                                         </div>
 
-                                        <div className="col-md-4">
-                                            <div className="input-box pb--20">
-                                                <label
-                                                    htmlFor="Size"
-                                                    className="form-label"
-                                                >
-                                                    Size
-                                                </label>
-                                                <input
-                                                    id="size"
-                                                    placeholder="e. g. `Size`"
-                                                    {...register("size", {
-                                                        required:
-                                                            "Size is required",
-                                                    })}
-                                                />
-                                                {errors.size && (
-                                                    <ErrorText>
-                                                        {errors.size?.message}
-                                                    </ErrorText>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4">
-                                            <div className="input-box pb--20">
-                                                <label
-                                                    htmlFor="Propertie"
-                                                    className="form-label"
-                                                >
-                                                    Properties
-                                                </label>
-                                                <input
-                                                    id="propertiy"
-                                                    placeholder="e. g. `Propertie`"
-                                                    {...register("propertiy", {
-                                                        required:
-                                                            "Propertiy is required",
-                                                    })}
-                                                />
-                                                {errors.propertiy && (
-                                                    <ErrorText>
-                                                        {
-                                                            errors.propertiy
-                                                                ?.message
-                                                        }
-                                                    </ErrorText>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-12">
-                                            <div className="input-box pb--20">
-                                                <label
-                                                    htmlFor="Royality"
-                                                    className="form-label"
-                                                >
-                                                    Royality
-                                                </label>
-                                                <input
-                                                    id="royality"
-                                                    placeholder="e. g. `20%`"
-                                                    {...register("royality", {
-                                                        required:
-                                                            "Royality is required",
-                                                    })}
-                                                />
-                                                {errors.royality && (
-                                                    <ErrorText>
-                                                        {
-                                                            errors.royality
-                                                                ?.message
-                                                        }
-                                                    </ErrorText>
-                                                )}
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4 col-sm-4">
-                                            <div className="input-box pb--20 rn-check-box">
-                                                <input
-                                                    className="rn-check-box-input"
-                                                    type="checkbox"
-                                                    id="putonsale"
-                                                />
-                                                <label
-                                                    className="rn-check-box-label"
-                                                    htmlFor="putonsale"
-                                                >
-                                                    Put on Sale
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4 col-sm-4">
-                                            <div className="input-box pb--20 rn-check-box">
-                                                <input
-                                                    className="rn-check-box-input"
-                                                    type="checkbox"
-                                                    id="instantsaleprice"
-                                                />
-                                                <label
-                                                    className="rn-check-box-label"
-                                                    htmlFor="instantsaleprice"
-                                                >
-                                                    Instant Sale Price
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div className="col-md-4 col-sm-4">
-                                            <div className="input-box pb--20 rn-check-box">
-                                                <input
-                                                    className="rn-check-box-input"
-                                                    type="checkbox"
-                                                    id="unlockpurchased"
-                                                />
-                                                <label
-                                                    className="rn-check-box-label"
-                                                    htmlFor="unlockpurchased"
-                                                >
-                                                    Unlock Purchased
-                                                </label>
-                                            </div>
-                                        </div>
-
                                         <div className="col-md-12 col-xl-4">
                                             <div className="input-box">
                                                 <Button
                                                     color="primary-alta"
                                                     fullwidth
-                                                    type="submit"
+                                                    type="button"
                                                     data-btn="preview"
-                                                    onClick={handleSubmit(
-                                                        onSubmit
-                                                    )}
+                                                    onClick={handleSubmit(onSubmit)}
                                                 >
                                                     Preview
                                                 </Button>
@@ -366,17 +268,7 @@ const CreateNewArea = ({ className, space }) => {
                                 </div>
                             </div>
                             <div className="mt--100 mt_sm--30 mt_md--30 d-block d-lg-none">
-                                <h5> Note: </h5>
-                                <span>
-                                    {" "}
-                                    Service fee : <strong>2.5%</strong>{" "}
-                                </span>{" "}
-                                <br />
-                                <span>
-                                    {" "}
-                                    You will receive :{" "}
-                                    <strong>25.00 ETH $50,000</strong>
-                                </span>
+                                
                             </div>
                         </div>
                     </div>

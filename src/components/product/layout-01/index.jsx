@@ -50,7 +50,7 @@ const Product = ({
                         <Anchor path={`/product/${slug}`}>
                             <Image
                                 src={image.src}
-                                alt={image?.alt || "NFT_portfolio"}
+                                alt={image?.alt || "Product"}
                                 width={533}
                                 height={533}
                             />
@@ -64,22 +64,7 @@ const Product = ({
                     )}
                 </div>
                 <div className="product-share-wrapper">
-                    <div className="profile-share">
-                        {authors?.map((client) => (
-                            <ClientAvatar
-                                key={client.name}
-                                slug={client.slug}
-                                name={client.name}
-                                image={client.image}
-                            />
-                        ))}
-                        <Anchor
-                            className="more-author-text"
-                            path={`/product/${slug}`}
-                        >
-                            {bitCount}+ Place Bit.
-                        </Anchor>
-                    </div>
+                    
                     {!disableShareDropdown && <ShareDropdown />}
                 </div>
                 <Anchor path={`/product/${slug}`}>

@@ -36,7 +36,7 @@ const Product = ({
                             >
                                 <Image
                                     src={image.src}
-                                    alt={image?.alt || "NFT_portfolio"}
+                                    alt={image?.alt || "Product"}
                                     width={image?.width ? image.width : 430}
                                     height={image?.height ? image.height : 430}
                                 />

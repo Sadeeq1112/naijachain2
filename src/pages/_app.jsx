@@ -1,8 +1,10 @@
+// pages/_app.js
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import sal from "sal.js";
 import { ThemeProvider } from "next-themes";
+import { WalletProvider } from '../contexts/WalletContext';
 import "../assets/css/bootstrap.min.css";
 import "../assets/css/feather.css";
 import "../assets/css/modal-video.css";
@@ -23,7 +25,9 @@ const MyApp = ({ Component, pageProps }) => {
     });
     return (
         <ThemeProvider defaultTheme="dark">
-            <Component {...pageProps} />
+            <WalletProvider>
+                <Component {...pageProps} />
+            </WalletProvider>
         </ThemeProvider>
     );
 };

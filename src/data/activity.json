@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "title": "Preatent",
+        "title": "Artisanal Craft Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>2.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>2.50 ALGO</span> each",
         "date": "19th June",
         "time": "2:00 PM",
         "author": {
@@ -19,9 +19,9 @@
     },
     {
         "id": 2,
-        "title": "#21 The Wonder",
+        "title": "Handcrafted Jewelry Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>2.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>2.50 ALGO</span> each",
         "date": "20th June",
         "time": "2:30 PM",
         "author": {
@@ -37,9 +37,9 @@
     },
     {
         "id": 3,
-        "title": "Morgan11",
+        "title": "Custom Pottery Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>3.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>3.50 ALGO</span> each",
         "date": "20th June",
         "time": "1:30 PM",
         "author": {
@@ -55,9 +55,9 @@
     },
     {
         "id": 4,
-        "title": "Diamond Dog",
+        "title": "Handmade Quilt Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>6.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>6.50 ALGO</span> each",
         "date": "20th June",
         "time": "9:30 PM",
         "author": {
@@ -73,9 +73,9 @@
     },
     {
         "id": 5,
-        "title": "cAtal7",
+        "title": "Artisanal Soap Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>9.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>9.50 ALGO</span> each",
         "date": "21th June",
         "time": "11:30 PM",
         "author": {
@@ -91,9 +91,9 @@
     },
     {
         "id": 6,
-        "title": "Norgan12",
+        "title": "Handcrafted Leather Bag Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>2.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>2.50 ALGO</span> each",
         "date": "21th June",
         "time": "11:30 PM",
         "author": {
@@ -109,9 +109,9 @@
     },
     {
         "id": 7,
-        "title": "Preasent",
+        "title": "Custom Woodwork Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>2.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>2.50 ALGO</span> each",
         "date": "21th June",
         "time": "11:30 PM",
         "author": {
@@ -127,9 +127,9 @@
     },
     {
         "id": 8,
-        "title": "Sun Afford",
+        "title": "Handmade Candle Listed",
         "slug": "/product",
-        "description": "10 editions listed by Bits for <span>2.50 ETH</span> each",
+        "description": "10 editions listed by CraftHub for <span>2.50 ALGO</span> each",
         "date": "21th June",
         "time": "11:30 PM",
         "author": {

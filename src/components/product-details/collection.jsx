@@ -5,12 +5,12 @@ import { ImageType } from "@utils/types";
 
 const ProductCollection = ({ className, collection }) => (
     <div className={clsx("collection", className)}>
-        <span>Collections</span>
+        {/*<span>Collections</span>
         <TopSeller
             name={collection.name}
             slug={collection.slug}
             image={{ src: collection.image.src, width: 44, height: 44 }}
-        />
+        />*/}
     </div>
 );
 
